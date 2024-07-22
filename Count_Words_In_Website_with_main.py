@@ -2,8 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
-PAGE_URL = 'https://academy.hackthebox.com/module/88/section/923'
-
 def get_html_of(url):
     resp = requests.get(url)
 
@@ -35,10 +33,16 @@ def get_top_words(all_words):
     occr = count_occ_in(all_words)
     return sorted(occr.items(), key=lambda item: item[1], reverse=True)
 
-all_words = get_all_words(PAGE_URL)
-top_words = get_top_words(all_words)
+#all_words = get_all_words(PAGE_URL)
+#top_words = get_top_words(all_words)
+#
+#for i in range(10):
+#    print(top_words[i][0])
 
-for i in range(10):
-    print(top_words[i][0])
+if __name__ == '__main__':
+    page_url = 'https://academy.hackthebox.com/module/88/section/924'
+    the_words = get_all_words(page_url)
+    top_words = get_top_words(the_words)
 
-# print(top_words)
+    for i in range(10):
+        print(top_words[i][0])
