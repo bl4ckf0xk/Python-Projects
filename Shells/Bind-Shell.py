@@ -25,7 +25,7 @@ def main(port):
         cmd = (b''.join(chunks)).decode()[:-1]
 
         if cmd.lower() == 'exit':
-            client.socket.close()
+            client_socket.close()
             break
 
         output = run_cmd(cmd)
